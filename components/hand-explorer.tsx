@@ -1,0 +1,6 @@
+"use client";
+import {useEffect,useState} from "react";
+import {Pause,Play} from "lucide-react";
+import HandCoach from "./hand-coach";
+import {DEMO_STEPS} from "@/lib/keyboard-model";
+export default function HandExplorer(){const [key,setKey]=useState('r'),[step,setStep]=useState(0),[play,setPlay]=useState(true);useEffect(()=>{if(!play)return;const id=setInterval(()=>setStep(n=>(n+1)%4),750);return()=>clearInterval(id)},[play,key]);return <div className="hand-explorer"><div className="explorer-toolbar"><label>看看这个键<select aria-label="选择演示按键" value={key} onChange={e=>{setKey(e.target.value);setStep(0)}}>{Array.from('fjdkaslrueiwotyqpcvbnmxz1234567890,.;/').map(c=><option value={c} key={c}>{c.toUpperCase()}</option>)}<option value="A">Shift + A</option><option value="J">Shift + J</option><option value="?">?</option><option value=" ">空格</option></select></label><button className="text-button" onClick={()=>setPlay(!play)}>{play?<Pause size={14}/>:<Play size={14}/>} {play?'暂停演示':'播放演示'}</button></div><div className="explorer-steps">{DEMO_STEPS.map((s,i)=><button className={step===i?'active':''} key={s} onClick={()=>{setPlay(false);setStep(i)}}>{i+1}. {s}</button>)}</div><HandCoach char={key} movement={step} demo showHands paused={!play}/></div>}

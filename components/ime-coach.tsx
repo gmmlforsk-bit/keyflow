@@ -1,0 +1,4 @@
+"use client";
+export default function ImeCoach({step=0,active=false}:{step?:number;active?:boolean}){
+ return <div className={"ime-coach "+(active?"ime-follow":"")} aria-label="中文输入演示：输入拼音 lianxi，选择练习，再确认上屏"><div className="ime-row"><span className="ime-mode">中</span><div className="ime-entry"><span className={step>=2?'ime-committed':''}>{step>=2?'练习':'lianxi'}</span><i/></div><span className="ime-help">{active?'在输入区打出「练习」':'输入 → 选词 → 上屏'}</span></div><div className={"ime-candidates "+(step===1?'candidate-focus':'')}><span className="candidate-selected"><b>1</b>练习</span><span><b>2</b>联系</span><span><b>3</b>联席</span><span className="candidate-space">空格确认</span></div><div className="ime-steps"><span className={step===0?'active':''}>01 输入拼音</span><i/><span className={step===1?'active':''}>02 确认候选</span><i/><span className={step>=2?'active':''}>03 文字上屏</span></div></div>;
+}
