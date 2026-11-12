@@ -20,7 +20,7 @@ npx tsc --noEmit
 npm run build
 ```
 
-当前项目使用 Vinext 与 Cloudflare Worker，GitHub 仓库用于保存源码，未配置 GitHub Pages。练习数据保存在使用者的浏览器中。
+当前项目使用 Vinext 与 Cloudflare Worker，在线练习：https://gmmlforsk-bit.github.io/keyflow/ 。练习数据保存在使用者的浏览器中。
 
 ## 直接练习
 

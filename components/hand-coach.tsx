@@ -14,11 +14,11 @@ export default function HandCoach({char="f",movement=0,feedback="idle",actual=""
  const home=activeId>=0?FINGER_HOME[activeId]:target;
  const origin=home;
  const assetNames:Record<string,string>={' ':'space',';':'semicolon',"'":'single-quote',',':'comma','.':'dot','/':'slash','[':'left-center-bracket',']':'right-center-bracket','\\':'backslash','-':'minus','=':'equal','`':'tilda','Enter':'enter','Shift':'shift-left','ShiftR':'shift-right'};
- const gesture=(key:string)=>'/images/hands/hand-'+(assetNames[key]||key.toLowerCase())+'.svg';
+ const gesture=(key:string)=>'/keyflow/images/hands/hand-'+(assetNames[key]||key.toLowerCase())+'.svg';
  const posed=!demo||movement===1||movement===2;
  const poseKey=posed?info.base:(info.finger?.home==='Space'?' ':info.finger?.home.toLowerCase()||'f');
- const leftPose=activeId<=3&&activeId>=0||activeId===8?gesture(poseKey):secondary===0?gesture('Shift'):'/images/hands/hand-neutral-left.svg';
- const rightPose=activeId>=4&&activeId<=7?gesture(poseKey):secondary===7?gesture('ShiftR'):'/images/hands/hand-neutral-right.svg';
+ const leftPose=activeId<=3&&activeId>=0||activeId===8?gesture(poseKey):secondary===0?gesture('Shift'):'/keyflow/images/hands/hand-neutral-left.svg';
+ const rightPose=activeId>=4&&activeId<=7?gesture(poseKey):secondary===7?gesture('ShiftR'):'/keyflow/images/hands/hand-neutral-right.svg';
  const point=movement===1||movement===2?target:origin;
  return <div className={"hand-coach "+(showHands?"with-hands":"keys-only")} data-paused={paused} data-movement={movement} data-target={char}>
  <svg ref={svg} viewBox={showHands?"0 0 960 500":"0 0 960 240"} role="img" aria-label={info.finger?`${info.finger.name}：从 ${info.finger.home==='Space'?'空格':info.finger.home} 到 ${char===' '?'空格':char.toUpperCase()}，按下后回位`:'按原文输入字符'}>
