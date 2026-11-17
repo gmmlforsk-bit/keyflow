@@ -14,8 +14,8 @@ export function scheduleVoice(ctx:AudioContext,frequency:number,time:number,dura
  osc.onended=()=>{osc.disconnect();envelope.disconnect()};
 }
 export const VOICES:Record<Cue,{frequency:number;offset:number;duration:number;gain:number;type?:OscillatorType;end?:number}[]>={
- correct:[{frequency:880,offset:0,duration:.038,gain:.13,end:560},{frequency:1760,offset:0,duration:.022,gain:.0225,end:980}],
- error:[{frequency:185,offset:0,duration:.065,gain:.1375,type:"triangle",end:145},{frequency:150,offset:.072,duration:.075,gain:.1075,type:"triangle",end:112}],
+ correct:[{frequency:880,offset:0,duration:.038,gain:.65,end:560},{frequency:1760,offset:0,duration:.022,gain:.1125,end:980}],
+ error:[{frequency:185,offset:0,duration:.065,gain:.6875,type:"triangle",end:145},{frequency:150,offset:.072,duration:.075,gain:.5375,type:"triangle",end:112}],
  start:[{frequency:440,offset:0,duration:.065,gain:.025},{frequency:660,offset:.045,duration:.09,gain:.03}],
  complete:[{frequency:523.25,offset:0,duration:.14,gain:.035},{frequency:659.25,offset:.075,duration:.17,gain:.03},{frequency:783.99,offset:.15,duration:.24,gain:.028}],
 };
